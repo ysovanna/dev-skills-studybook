@@ -1,0 +1,477 @@
+{
+ "slug": "git-basics",
+ "title_ko": "Git basics",
+ "title_en": "Version control with Git",
+ "subtitle": "One project, from git init to push",
+ "description": "Git from zero: 12 picture cards with native audio, the traps people actually fall into, real questions and 24 version-control words.",
+ "published": "2026-11-09",
+ "sections": [
+  {
+   "id": "start",
+   "ko": "Start",
+   "en": "Make a repo",
+   "color": "#0052A4"
+  },
+  {
+   "id": "daily",
+   "ko": "Work",
+   "en": "Track changes",
+   "color": "#00A84D"
+  },
+  {
+   "id": "save",
+   "ko": "Save",
+   "en": "Commit snapshots",
+   "color": "#996CAC"
+  },
+  {
+   "id": "branch",
+   "ko": "Branch",
+   "en": "Parallel work",
+   "color": "#EF7C1C"
+  },
+  {
+   "id": "share",
+   "ko": "Share",
+   "en": "Push and pull",
+   "color": "#CD7C2F"
+  }
+ ],
+ "spine": {
+  "title": "The route",
+  "note": "One project in order: create the repo, work and track changes, save snapshots, branch out, share with others."
+ },
+ "explain": {
+  "title": "The big picture",
+  "why": "Git is a time machine for your files. Every commit is a snapshot you can return to, compare or hand to someone else — and none of it needs the internet.",
+  "tiles": [
+   {
+    "img": "img/x-clock.svg",
+    "ko": "Time machine",
+    "en": "Every save point stays forever",
+    "color": "#0052A4"
+   },
+   {
+    "img": "img/c5-tray.svg",
+    "ko": "Choose what to save",
+    "en": "Staging picks the changes for you",
+    "color": "#00A84D"
+   },
+   {
+    "img": "img/c7-log.svg",
+    "ko": "Snapshots have IDs",
+    "en": "A short hash names every commit",
+    "color": "#996CAC"
+   },
+   {
+    "img": "img/c9-fork.svg",
+    "ko": "Parallel lines",
+    "en": "Branches let ideas grow apart safely",
+    "color": "#EF7C1C"
+   },
+   {
+    "img": "img/x-conflict.svg",
+    "ko": "Conflicts are normal",
+    "en": "Two edits, one line — you choose",
+    "color": "#D7372B"
+   },
+   {
+    "img": "img/c11-cloud.svg",
+    "ko": "Shared backup",
+    "en": "The remote holds everyone's work",
+    "color": "#CD7C2F"
+   }
+  ]
+ },
+ "cards": [
+  {
+   "sec": "start",
+   "img": "img/c1-terminal.svg",
+   "flat": true,
+   "alt": "A terminal window running git init",
+   "hook": "init",
+   "ko": "git init turns this folder into a repository that Git can watch.",
+   "en": "git init — run once in the project root",
+   "audio": "audio/c1.mp3"
+  },
+  {
+   "sec": "start",
+   "img": "img/c2-folder.svg",
+   "flat": true,
+   "alt": "A folder with a hidden .git tag",
+   "hook": ".git",
+   "ko": "Everything Git remembers lives inside one hidden folder called .git.",
+   "en": "Delete .git and all history is gone — the files stay",
+   "audio": "audio/c2.mp3"
+  },
+  {
+   "sec": "daily",
+   "img": "img/c3-status.svg",
+   "flat": true,
+   "alt": "A magnifier over a list of changed files",
+   "hook": "status",
+   "ko": "When you are lost, run git status — it says where you are and what changed.",
+   "en": "git status",
+   "audio": "audio/c3.mp3"
+  },
+  {
+   "sec": "daily",
+   "img": "img/c4-diff.svg",
+   "flat": true,
+   "alt": "Two pages showing removed and added lines",
+   "hook": "diff",
+   "ko": "git diff shows every line that changed before you decide anything.",
+   "en": "git diff · git diff --staged",
+   "audio": "audio/c4.mp3"
+  },
+  {
+   "sec": "daily",
+   "img": "img/c5-tray.svg",
+   "flat": true,
+   "alt": "A file being placed into an inbox tray",
+   "hook": "stage",
+   "ko": "git add puts changes in the staging area — the waiting list for the next snapshot.",
+   "en": "git add login.py (or git add . for everything)",
+   "audio": "audio/c5.mp3"
+  },
+  {
+   "sec": "save",
+   "img": "img/c6-snapshot.svg",
+   "flat": true,
+   "alt": "A polaroid snapshot with a green check",
+   "hook": "commit",
+   "ko": "git commit saves the staged changes as one snapshot, with a message that says why.",
+   "en": "git commit -m \"fix login timeout\"",
+   "audio": "audio/c6.mp3"
+  },
+  {
+   "sec": "save",
+   "img": "img/c7-log.svg",
+   "flat": true,
+   "alt": "A vertical timeline of commit dots",
+   "hook": "log",
+   "ko": "git log walks you backwards through every snapshot, newest first.",
+   "en": "git log --oneline --graph",
+   "audio": "audio/c7.mp3"
+  },
+  {
+   "sec": "save",
+   "img": "img/c8-undo.svg",
+   "flat": true,
+   "alt": "A curved back arrow around a file",
+   "hook": "undo",
+   "ko": "Undo is never scary here: git restore brings a file back from the last snapshot.",
+   "en": "git restore login.py · undo a commit: git reset --soft HEAD~1",
+   "audio": "audio/c8.mp3"
+  },
+  {
+   "sec": "branch",
+   "img": "img/c9-fork.svg",
+   "flat": true,
+   "alt": "A line of commits forking into a second line",
+   "hook": "branch",
+   "ko": "A branch is its own line of work, so an experiment can't break main.",
+   "en": "git switch -c new-feature",
+   "audio": "audio/c9.mp3"
+  },
+  {
+   "sec": "branch",
+   "img": "img/c10-merge.svg",
+   "flat": true,
+   "alt": "Two commit lines joining at one point",
+   "hook": "merge",
+   "ko": "Merging folds one branch's snapshots into another; a conflict is just Git asking who wins.",
+   "en": "git switch main · git merge new-feature",
+   "audio": "audio/c10.mp3"
+  },
+  {
+   "sec": "share",
+   "img": "img/c11-cloud.svg",
+   "flat": true,
+   "alt": "A cloud holding a repository folder",
+   "hook": "remote",
+   "ko": "A remote is the shared copy of your repo, usually on GitHub — everyone's work lives there.",
+   "en": "origin = the default name of your remote",
+   "audio": "audio/c11.mp3"
+  },
+  {
+   "sec": "share",
+   "img": "img/c12-sync.svg",
+   "flat": true,
+   "alt": "A laptop exchanging arrows with a cloud",
+   "hook": "sync",
+   "ko": "Clone copies a whole repo with history; push sends your commits out; pull brings other people's in.",
+   "en": "git clone <url> · git push · git pull --rebase",
+   "audio": "audio/c12.mp3"
+  }
+ ],
+ "qa_note": "Start with the traps — they are where most Git fear comes from.",
+ "qa": [
+  {
+   "kind": "trap",
+   "title": "Traps",
+   "items": [
+    {
+     "q": "I ran git add . and committed everything — including my secrets.",
+     "a": "Untrack it now: git rm --cached .env, put it in .gitignore, commit. If the repo was ever pushed, rotate the secret — history keeps old copies forever.",
+     "why": "Staging is a promise about what belongs in the snapshot; add . promises everything.",
+     "qaudio": "audio/q1.mp3",
+     "audio": "audio/a1.mp3"
+    },
+    {
+     "q": "I work straight on main because branching feels like extra work.",
+     "a": "Open a branch before every change: git switch -c fix-login. Merging your own small branch takes seconds and keeps mistakes off main.",
+     "why": "main stays clean and reviewable; an accident stays quarantined on its side line.",
+     "qaudio": "audio/q2.mp3",
+     "audio": "audio/a2.mp3"
+    },
+    {
+     "q": "I thought git pull just downloads files.",
+     "a": "Pull downloads other people's commits AND merges them into your work — that is where conflicts come from. Use git fetch to look first, merge when ready.",
+     "why": "Download and integrate are two steps; pull quietly does both at once.",
+     "qaudio": "audio/q3.mp3",
+     "audio": "audio/a3.mp3"
+    },
+    {
+     "q": "I deleted a commit by mistake — it is gone forever?",
+     "a": "Almost never. git reflog lists every position HEAD has held; find the old hash and reset hard back to it.",
+     "why": "Git rarely deletes commits quickly — it moves pointers, and reflog remembers them.",
+     "qaudio": "audio/q4.mp3",
+     "audio": "audio/a4.mp3",
+     "aen": "git reflog · then git reset --hard <hash>"
+    }
+   ]
+  },
+  {
+   "kind": "qa",
+   "title": "Real questions",
+   "items": [
+    {
+     "q": "How do I undo my last commit but keep the changes?",
+     "a": "git reset --soft HEAD~1 — the commit disappears and your changes wait in the staging area.",
+     "qaudio": "audio/q5.mp3",
+     "audio": "audio/a5.mp3"
+    },
+    {
+     "q": "What exactly is HEAD?",
+     "a": "HEAD is where you are right now: which branch, on which commit. Undo commands are really about moving it.",
+     "qaudio": "audio/q6.mp3",
+     "audio": "audio/a6.mp3"
+    },
+    {
+     "q": "My push was rejected. What now?",
+     "a": "The remote has commits you don't. Run git pull --rebase, fix any conflicts, then git push again.",
+     "qaudio": "audio/q7.mp3",
+     "audio": "audio/a7.mp3"
+    },
+    {
+     "q": "A merge conflict appeared. Walk me through it.",
+     "a": "Open the marked files, keep the lines you want, delete Git's marker lines, then git add each file and commit.",
+     "qaudio": "audio/q8.mp3",
+     "audio": "audio/a8.mp3",
+     "aen": "markers look like: <<<<<<< HEAD / ======= / >>>>>>> other-branch"
+    },
+    {
+     "q": "How do I stop tracking a file without deleting it?",
+     "a": "Run git rm --cached for that file, add it to .gitignore, commit. The file stays on your disk.",
+     "qaudio": "audio/q9.mp3",
+     "audio": "audio/a9.mp3",
+     "aen": "git rm --cached <file> · then list it in .gitignore"
+    }
+   ]
+  },
+  {
+   "kind": "surv",
+   "title": "When you are stuck",
+   "items": [
+    {
+     "ko": "Read git status again — it usually names the exact next command.",
+     "en": "Git's own hint line is the map.",
+     "audio": "audio/s1.mp3"
+    },
+    {
+     "ko": "git log --oneline --graph --all shows where every branch really is.",
+     "en": "See the whole map before touching anything.",
+     "audio": "audio/s2.mp3"
+    },
+    {
+     "ko": "git reflog finds commits you thought were lost.",
+     "en": "The safety net for undo disasters.",
+     "audio": "audio/s3.mp3"
+    },
+    {
+     "ko": "Type git help, then any command name, to read its manual page offline.",
+     "en": "The docs live in your terminal.",
+     "audio": "audio/s4.mp3"
+    }
+   ]
+  }
+ ],
+ "vocab": [
+  {
+   "title": "The objects",
+   "color": "#0052A4",
+   "items": [
+    {
+     "ko": "repository",
+     "en": "The project folder plus all its history, inside .git",
+     "audio": "audio/v01.mp3"
+    },
+    {
+     "ko": "working directory",
+     "en": "Your actual files, the ones you edit",
+     "audio": "audio/v02.mp3"
+    },
+    {
+     "ko": "staging area",
+     "en": "The prepared set of changes for the next commit; also called the index",
+     "audio": "audio/v03.mp3"
+    },
+    {
+     "ko": "commit",
+     "en": "One saved snapshot of the project with a unique hash",
+     "audio": "audio/v04.mp3"
+    },
+    {
+     "ko": "HEAD",
+     "en": "A pointer to where you are now — branch and commit",
+     "audio": "audio/v05.mp3"
+    },
+    {
+     "ko": "branch",
+     "en": "An independent line of commits",
+     "audio": "audio/v06.mp3"
+    },
+    {
+     "ko": "remote",
+     "en": "A shared copy of the repository on another server",
+     "audio": "audio/v07.mp3"
+    },
+    {
+     "ko": "tag",
+     "en": "A permanent name pinned to one commit, like v1.0",
+     "audio": "audio/v08.mp3"
+    }
+   ]
+  },
+  {
+   "title": "The actions",
+   "color": "#00A84D",
+   "items": [
+    {
+     "ko": "init",
+     "en": "Create a new repository in this folder",
+     "audio": "audio/v09.mp3"
+    },
+    {
+     "ko": "clone",
+     "en": "Copy an existing repository with its full history",
+     "audio": "audio/v10.mp3"
+    },
+    {
+     "ko": "stage (add)",
+     "en": "Put changes into the staging area",
+     "audio": "audio/v11.mp3"
+    },
+    {
+     "ko": "commit",
+     "en": "Save the staged changes as a snapshot",
+     "audio": "audio/v12.mp3"
+    },
+    {
+     "ko": "push",
+     "en": "Send your commits to the remote",
+     "audio": "audio/v13.mp3"
+    },
+    {
+     "ko": "pull",
+     "en": "Fetch the remote's commits and integrate them",
+     "audio": "audio/v14.mp3"
+    },
+    {
+     "ko": "fetch",
+     "en": "Download the remote's commits without touching your work",
+     "audio": "audio/v15.mp3"
+    },
+    {
+     "ko": "merge",
+     "en": "Combine two branches' histories into one",
+     "audio": "audio/v16.mp3"
+    },
+    {
+     "ko": "rebase",
+     "en": "Replay your commits on top of another line",
+     "audio": "audio/v17.mp3"
+    }
+   ]
+  },
+  {
+   "title": "Signals and files",
+   "color": "#996CAC",
+   "items": [
+    {
+     "ko": ".gitignore",
+     "en": "A list of paths Git should never track",
+     "audio": "audio/v18.mp3"
+    },
+    {
+     "ko": "diff",
+     "en": "The exact lines added or removed between two versions",
+     "audio": "audio/v19.mp3"
+    },
+    {
+     "ko": "conflict",
+     "en": "Two changes to the same place that Git cannot decide for you",
+     "audio": "audio/v20.mp3"
+    },
+    {
+     "ko": "origin",
+     "en": "The default name of the remote you cloned from",
+     "audio": "audio/v21.mp3"
+    },
+    {
+     "ko": "upstream",
+     "en": "The remote branch your branch tracks",
+     "audio": "audio/v22.mp3"
+    },
+    {
+     "ko": "commit message",
+     "en": "One line saying why the change exists",
+     "audio": "audio/v23.mp3"
+    },
+    {
+     "ko": "reflog",
+     "en": "Local history of every place HEAD has been",
+     "audio": "audio/v24.mp3"
+    }
+   ]
+  }
+ ],
+ "full": [
+  {
+   "title": "Start · Make a repo",
+   "ko": "git init turns this folder into a repository that Git can watch. Everything Git remembers lives inside one hidden folder called .git.",
+   "en": "git init — run once in the project root Delete .git and all history is gone — the files stay"
+  },
+  {
+   "title": "Work · Track changes",
+   "ko": "When you are lost, run git status — it says where you are and what changed. git diff shows every line that changed before you decide anything. git add puts changes in the staging area — the waiting list for the next snapshot.",
+   "en": "git status git diff · git diff --staged git add login.py (or git add . for everything)"
+  },
+  {
+   "title": "Save · Commit snapshots",
+   "ko": "git commit saves the staged changes as one snapshot, with a message that says why. git log walks you backwards through every snapshot, newest first. Undo is never scary here: git restore brings a file back from the last snapshot.",
+   "en": "git commit -m \"fix login timeout\" git log --oneline --graph git restore login.py · undo a commit: git reset --soft HEAD~1"
+  },
+  {
+   "title": "Branch · Parallel work",
+   "ko": "A branch is its own line of work, so an experiment can't break main. Merging folds one branch's snapshots into another; a conflict is just Git asking who wins.",
+   "en": "git switch -c new-feature git switch main · git merge new-feature"
+  },
+  {
+   "title": "Share · Push and pull",
+   "ko": "A remote is the shared copy of your repo, usually on GitHub — everyone's work lives there. Clone copies a whole repo with history; push sends your commits out; pull brings other people's in.",
+   "en": "origin = the default name of your remote git clone <url> · git push · git pull --rebase"
+  }
+ ]
+}
